@@ -1,15 +1,34 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 class Matrix {
+    private int[][] matrix;
 
     Matrix(String matrixAsString) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        String[] rows = matrixAsString.split("\n");
+        int i, j;
+        for(i = 0; i < rows.length; i++){
+            String[] values = rows[i].split(" ");
+            if(matrix == null){
+                matrix = new int[rows.length][values.length];
+            }
+            for(j = 0; j < values.length; j++){
+                matrix[i][j] = Integer.parseInt(values[j]);
+            }
+        }
     }
 
-    int[] getRow(int rowNumber) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    int[] getRow(int rowIndex) {
+        return matrix[rowIndex - 1];
     }
 
-    int[] getColumn(int columnNumber) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    int[] getColumn(int columnIndex) {
+        columnIndex--;
+        int[] column = new int[matrix.length];
+        for(int i = 0; i < matrix.length; i++){
+            column[i] = matrix[i][columnIndex];
+        }
+        return column;
     }
 }
