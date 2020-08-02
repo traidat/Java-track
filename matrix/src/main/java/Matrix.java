@@ -10,24 +10,24 @@ class Matrix {
         int i, j;
         for(i = 0; i < rows.length; i++){
             String[] values = rows[i].split(" ");
-            if(matrix == null){
-                matrix = new int[rows.length][values.length];
+            if(this.matrix == null){
+                this.matrix = new int[rows.length][values.length];
             }
             for(j = 0; j < values.length; j++){
-                matrix[i][j] = Integer.parseInt(values[j]);
+                this.matrix[i][j] = Integer.parseInt(values[j]);
             }
         }
     }
 
     int[] getRow(int rowIndex) {
-        return matrix[rowIndex - 1];
+        return this.matrix[rowIndex - 1];
     }
 
     int[] getColumn(int columnIndex) {
         columnIndex--;
-        int[] column = new int[matrix.length];
-        for(int i = 0; i < matrix.length; i++){
-            column[i] = matrix[i][columnIndex];
+        int[] column = new int[this.matrix.length];
+        for(int i = 0; i < this.matrix.length; i++){
+            column[i] = this.matrix[i][columnIndex];
         }
         return column;
     }
